@@ -44,8 +44,13 @@ function setup() {
   };
   model = ml5.neuralNetwork(options);
   // new code below
-
   createMusicSystem();
+  let modelInfo = {
+  model: "model/model.json",
+  metadata: "model/model_meta.json",
+  weights: "model/model.weights.bin"
+};
+model.load(modelInfo, modelLoaded);
 }
 
 function draw() {
